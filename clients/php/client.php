@@ -22,7 +22,7 @@ define('SCURRILITY', true);
 
 require_once('./nusoap/nusoap.php');
 
-$soapurl = 'http://localhost/scurrility/scurrility.php';
+$soapurl = 'http://www.scurrility.ws/scurrility/scurrility.php';
 
 function scurrility($message) {
 	global $soapurl;
@@ -30,14 +30,18 @@ function scurrility($message) {
 	$soapaction = 'http://www.scurrility.ws/scurrility/Scurrility';
 	$soapclient = new nusoap_client($soapurl);
 
+	// create the request manually instead of parsing the WSDL file each
+	// time this method / the web service is invoked.
 	$soapmsg = $soapclient->serializeEnvelope('<ScurrilityRequest xmlns="http://www.scurrility.ws/scurrility"><message>' . htmlspecialchars($message, ENT_QUOTES) . '</message></ScurrilityRequest>','',array(),'document', 'literal');
 	$result = $soapclient->send($soapmsg, $soapaction);
 
 	if ($soapclient->fault) {
+		// Debugging
 		// print_r($result);
 		return false;
 	}
 
+	// Debugging
 	// echo $soapclient->request . "\n";
 	// echo "---\n";
 	// echo $soapclient->response . "\n";

@@ -99,6 +99,11 @@ function scurrility_request(msg) {
 		}
 	}
 
+	msg = msg.replace(/&/g, '&amp;');
+	msg = msg.replace(/</g, '&lt;');
+	msg = msg.replace(/>/g, '&gt;');
+	msg = msg.replace(/'/g, '&apos;');
+	msg = msg.replace(/"/g, '&quot;');
 
 	var request = null;
 	if (window.XMLHttpRequest) {

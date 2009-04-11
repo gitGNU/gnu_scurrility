@@ -103,6 +103,11 @@ function scurrility_request() {
 	var frm = document.getElementById("sf");
 	var msg = frm.msgi.value;
 
+	if (msg == null || msg == '') {
+		alert('Please enter a message to filter.');
+		return;
+	}
+
 	msg = msg.replace(/&/g, '&amp;');
 	msg = msg.replace(/</g, '&lt;');
 	msg = msg.replace(/>/g, '&gt;');

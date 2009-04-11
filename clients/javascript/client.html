@@ -25,8 +25,32 @@
     <meta http-equiv="Content-Language" content="English" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript" src="client.js"></script>
+    <link rel="stylesheet" type="text/css" href="client.css" media="screen" />
   </head>
-  <body onload="scurrility_request('this better fucking work')">
-    <p>test</p>
+  <body>
+    <div id="header">
+      scurrility javascript client demo
+    </div>
+    <div id="container">
+      <div id="content">
+        <table>
+          <tr>
+            <td>
+              <form action="javascript:scurrility_request()" id="sf">
+                <fieldset>
+                  <p>
+                    <textarea name="msgi" id="msgi" rows="2" cols="30"></textarea>
+                  </p><p id="submit_para">
+                    <input type="submit" id="submit" value="Apply scurrility Filter Now!"/><br/>
+                  </p><p>
+                    <textarea name="msgf" id="msgf" rows="2" cols="30"></textarea>
+                  </p>
+                </fieldset> 
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </body>
 </html>

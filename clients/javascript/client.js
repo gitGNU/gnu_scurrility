@@ -82,12 +82,13 @@ function scurrility_response(response) {
 		return;
 	}
 
-	alert(messageValue);
+	var frm = document.getElementById("sf");
+	frm.msgf.value = messageValue;
 
 	return;
 }
 
-function scurrility_request(msg) {
+function scurrility_request() {
 
 	// if this script is not hosted on the same server as the SOAP service,
         // then we need to enable UniversalBrowserRead to allow XMLHttpRequests.
@@ -98,6 +99,9 @@ function scurrility_request(msg) {
 			alert('Error: Enable Privilege [UniversalBrowserRead] Failed');
 		}
 	}
+
+	var frm = document.getElementById("sf");
+	var msg = frm.msgi.value;
 
 	msg = msg.replace(/&/g, '&amp;');
 	msg = msg.replace(/</g, '&lt;');

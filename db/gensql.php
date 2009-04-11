@@ -20,7 +20,7 @@
 
 echo "DELETE FROM words;\n";
 
-$lines = file('wordlist.txt');
+$lines = file('wordlist.en.txt');
 foreach ($lines as $lineno => $line) {
 	if (!preg_match("/^\-\-/", $line)) {
 		echo "INSERT INTO words (word) VALUES ('" . trim($line) . "');\n";

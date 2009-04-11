@@ -47,7 +47,7 @@ function db_filter($message) {
 		if (strlen($word) < 4) {
 			$result = mysql_query("SELECT word FROM words WHERE lower('" . mysql_real_escape_string($word) . "') LIKE word;");
 			while ($row = mysql_fetch_array($result)) {
-				$message = preg_replace('/' . $row['word'] . '/i', '[EXPLITIVE DELETED]', $message);
+				$message = preg_replace('/' . $row['word'] . '/i', '[EXPLETIVE DELETED]', $message);
 			}
 		}
 	}

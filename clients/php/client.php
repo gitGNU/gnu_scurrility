@@ -27,12 +27,19 @@ $soapurl = 'http://www.scurrility.ws/scurrility/scurrility.php';
 function scurrility($message) {
 	global $soapurl;
 
+	// Escape special characters to avoid malformed XML
+	$message = str_replace('&', '&amp;', $message);
+	$message = str_replace('<', '&lt;', $message);
+	$message = str_replace('>', '&gt;', $message);
+	$message = str_replace("'", '&apos;', $message);
+	$message = str_replace('"', '&quot;', $message);
+
 	$soapaction = 'http://www.scurrility.ws/scurrility/Scurrility';
 	$soapclient = new nusoap_client($soapurl);
 
 	// create the request manually instead of parsing the WSDL file each
 	// time this method / the web service is invoked.
-	$soapmsg = $soapclient->serializeEnvelope('<ScurrilityRequest xmlns="http://www.scurrility.ws/scurrility"><message>' . htmlspecialchars($message, ENT_QUOTES) . '</message></ScurrilityRequest>','',array(),'document', 'literal');
+	$soapmsg = $soapclient->serializeEnvelope('<ScurrilityRequest xmlns="http://www.scurrility.ws/scurrility"><message>' . $message . '</message></ScurrilityRequest>','',array(),'document', 'literal');
 	$result = $soapclient->send($soapmsg, $soapaction);
 
 	if ($soapclient->fault) {

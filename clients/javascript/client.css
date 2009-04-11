@@ -48,7 +48,7 @@ textarea {
 	background: #00A383;
 }
 
-#submit_para {
+.centered {
 	text-align: center;
 }
 
@@ -68,7 +68,15 @@ p {
 	text-align: center;
 	font-size: 4em;
 	border-bottom: dotted 1px #47006B;
-	padding: 10px 0 10px 0;
+	padding: 10px 0px 10px 0px;
 	color: #5ED1BA;
 	background: #006A55;
+}
+
+#footer {
+	font-size: 1.5em;
+}
+
+#footer a {
+	color:  #006A55;
 }

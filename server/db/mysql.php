@@ -39,7 +39,7 @@ function db_filter($message) {
 	$result = mysql_query("SELECT word FROM words WHERE MATCH (word) AGAINST ('" . mysql_real_escape_string($message) . "');", $dblink) or die(mysql_error());
 
 	while ($row = mysql_fetch_array($result)) {
-		$message = preg_replace('/' . $row['word'] . '/i', '[EXPLITIVE DELETED]', $message);
+		$message = preg_replace('/' . $row['word'] . '/i', '[EXPLETIVE DELETED]', $message);
 	}
 
 	$words = preg_split('/\s/', $message);

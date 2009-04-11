@@ -24,8 +24,13 @@ $dblink = false;
 
 function db_connect() {
 	global $dblink;
-	$dblink = mysql_connect("localhost", "root", "abc123") or die(mysql_error());
-	mysql_select_db("scurrility") or die(mysql_error());
+	global $dbhost;
+	global $dbname;
+	global $dbuser;
+	global $dbpass;
+
+	$dblink = mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error());
+	mysql_select_db($dbname) or die(mysql_error());
 }
 
 function db_filter($message) {

@@ -18,26 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define('SCURRILITY', true);
+if (!defined('SCURRILITY')) { exit(1); }
 
-require_once('config.php');
-require_once('nusoap/nusoap.php');
-require_once('db/mysql.php');
+$dbhost = 'localhost';
+$dbname = 'scurrility';
+$dbuser = 'root';
+$dbpass = 'abc123';
 
-function Scurrility($message) {
-
-	db_connect();
-	$filtered = db_filter($message);
-	db_disconnect();
-
-	return $filtered;
-}
-
-$server = new nusoap_server('scurrility.wsdl');
-
-if (isset($HTTP_RAW_POST_DATA)) {
-	$server->service($HTTP_RAW_POST_DATA);
-} else {
-	$server->service('');
-}
 ?>

@@ -1,0 +1,82 @@
+/*
+ * Copyright (C) 2009 Thomas Cort <tcort@tomcort.com>
+ *
+ * This file is part of scurrility.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Trebuchet MS" Verdana, Arial, sans-serif;
+	color: #34D1B2;
+	background: #00A383;
+	margin: 0px auto 0px auto;
+}
+
+fieldset {
+	color: #00A383;
+	background: #1F7A68;
+}
+
+textarea {
+	font-size: 2em;
+	color: #006A55;
+	background: #34D1B2;
+}
+
+#submit {
+	font-size: 1.8em;
+	margin: 0px auto 0 auto;
+	padding: 10px 10px 10px 10px;
+	color: #34D1B2;
+	background: #00A383;
+}
+
+.centered {
+	text-align: center;
+}
+
+table {
+	margin: 0px auto 0 auto;
+	padding: 10px 10px 10px 10px;
+	background: #00A383;
+	color: #1F7A68;
+}
+
+p {
+	padding: 10px 10px 10px 10px;
+}
+
+#header {
+	margin: 0px auto 0 auto;
+	text-align: center;
+	font-size: 4em;
+	border-bottom: dotted 1px #47006B;
+	padding: 10px 0px 10px 0px;
+	color: #5ED1BA;
+	background: #006A55;
+}
+
+#footer {
+	font-size: 1.5em;
+}
+
+#footer a {
+	color:  #006A55;
+}

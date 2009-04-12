@@ -27,7 +27,7 @@ def filter(msg):
 
 def getSourceCode():
 	WSDLFile = 'scurrility.wsdl'
-	return WSDL.Proxy(WSDLFile).GetSourceCode()
+	return WSDL.Proxy(WSDLFile).GetSourceCode('server')
 
-print filter('Go to hell, bitch.')
+print filter('go to hell')
 print getSourceCode()

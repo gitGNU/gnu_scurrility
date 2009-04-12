@@ -39,11 +39,11 @@
               <form action="javascript:scurrility_request()" id="sf">
                 <fieldset>
                   <p>
-                    <textarea name="msgi" id="msgi" rows="2" cols="30"></textarea>
+                    <textarea name="msgi" id="msgi" rows="4" cols="35"></textarea>
                   </p><p class="centered">
                     <input type="submit" id="submit" value="Apply scurrility Filter Now!"/><br/>
                   </p><p>
-                    <textarea name="msgf" id="msgf" rows="2" cols="30"></textarea>
+                    <textarea name="msgf" id="msgf" rows="4" cols="35"></textarea>
                   </p>
                 </fieldset> 
               </form>

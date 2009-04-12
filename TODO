@@ -1,0 +1,26 @@
+plugins
+
+	wordpress
+
+		wp-scurrility
+
+			* create an admin page
+			* add get source links
+
+server
+
+	* Create an install script
+	* make replacement configurable (i.e. "[EXPLETIVE DELETED]", ****, $euphemism, etc)
+	* web service could give more details
+		* profanity detected indicator
+		* number of bad words
+	* stats display page
+	* stats archiving
+
+db
+
+	* add euphemism column
+
+www.scurrility.ws
+
+	* Create a way for people to submit words for the word list

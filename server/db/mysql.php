@@ -33,10 +33,19 @@ function db_connect() {
 	mysql_select_db($dbname) or die(mysql_error());
 }
 
+function db_stats($hits) {
+	$ip = (isset($_SERVER['REMOTE_ADDR']) && trim($_SERVER['REMOTE_ADDR']) != "") ? substr($_SERVER['REMOTE_ADDR'], 0, 15) : "Unknown";
+	$agent = (isset($_SERVER['HTTP_USER_AGENT']) && trim($_SERVER['HTTP_USER_AGENT']) != "") ? substr($_SERVER['HTTP_USER_AGENT'], 0, 255) : "Unknown";
+
+	mysql_query("INSERT INTO stats (ip, agent, hits) VALUES ('" . mysql_real_escape_string($ip) . "', '" . mysql_real_escape_string($agent) . "', " . mysql_real_escape_string($hits) . ");") or die(mysql_error());
+
+}
+
 function db_filter($message) {
 	global $dblink;
 
 	$result = mysql_query("SELECT word FROM words WHERE MATCH (word) AGAINST ('" . mysql_real_escape_string($message) . "');", $dblink) or die(mysql_error());
+	$hits = count($result);
 
 	while ($row = mysql_fetch_array($result)) {
 		$message = preg_replace('/' . $row['word'] . '/i', '[EXPLETIVE DELETED]', $message);
@@ -48,10 +57,12 @@ function db_filter($message) {
 			$result = mysql_query("SELECT word FROM words WHERE lower('" . mysql_real_escape_string($word) . "') LIKE word;");
 			while ($row = mysql_fetch_array($result)) {
 				$message = preg_replace('/' . $row['word'] . '/i', '[EXPLETIVE DELETED]', $message);
+				$hits = $hits + 1;
 			}
 		}
 	}
 
+	db_stats($hits);
 	return $message;
 }
 

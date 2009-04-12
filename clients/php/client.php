@@ -64,7 +64,7 @@ function getSourceCode() {
 
 	// create the request manually instead of parsing the WSDL file each
 	// time this method / the web service is invoked.
-	$soapmsg = $soapclient->serializeEnvelope('','',array(),'document', 'literal');
+	$soapmsg = $soapclient->serializeEnvelope('<GetSourceCodeRequest xmlns="http://www.scurrility.ws/scurrility"><component>server</component></GetSourceCodeRequest>','',array(),'document', 'literal');
 	$result = $soapclient->send($soapmsg, $soapaction);
 
 	if ($soapclient->fault) {

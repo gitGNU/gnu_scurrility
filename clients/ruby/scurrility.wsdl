@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (C) 2009 Thomas Cort <tcort@tomcort.com>
+
+  This file is part of scurrility.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.scurrility.ws/scurrility" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.scurrility.ws/scurrility">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://www.scurrility.ws/scurrility">
+			<s:complexType name="ScurrilityRequestType">
+				<s:sequence>
+					<s:element name="message" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ScurrilityResponseType">
+				<s:sequence>
+					<s:element name="message" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ScurrilityRequest" type="tns:ScurrilityRequestType"/>
+			<s:element name="ScurrilityResponse" type="tns:ScurrilityResponseType"/>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="ScurrilityInput">
+		<wsdl:part name="parameters" element="tns:ScurrilityRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ScurrilityOutput">
+		<wsdl:part name="parameters" element="tns:ScurrilityResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="ScurrilityPortType">
+		<wsdl:operation name="Scurrility">
+			<wsdl:input message="tns:ScurrilityInput"/>
+			<wsdl:output message="tns:ScurrilityOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ScurrilityBinding" type="tns:ScurrilityPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="Scurrility">
+			<soap:operation soapAction="http://www.scurrility.ws/scurrility/Scurrility" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ScurrilityService">
+		<wsdl:port name="ScurrilityPort" binding="tns:ScurrilityBinding">
+			<soap:address location="http://www.scurrility.ws/scurrility/scurrility.php"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

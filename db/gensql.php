@@ -18,16 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-echo "DELETE FROM words;\n";
 
-$lines = file('wordlist.en.txt');
-foreach ($lines as $lineno => $line) {
-	if (!preg_match("/^\-\-/", $line)) {
-		echo "INSERT INTO words (word) VALUES ('" . trim($line) . "');\n";
-	} else {
-		echo $line;
-	}
+if ($argc < 2) {
+	die("Usage: php gensql.php <wordlist> [ <wordlist> ... ]\n");
 }
 
+echo "DELETE FROM words;\n";
+
+for ($i = 1; $i < $argc; $i++) {
+	$lines = file($argv[$i]);
+
+	echo "-- Begin " . $argv[$i] . "\n";
+
+	foreach ($lines as $lineno => $line) {
+		if (!preg_match("/^\-\-/", $line)) {
+			echo "INSERT INTO words (word) VALUES ('" . trim($line) . "');\n";
+		} else {
+			echo $line;
+		}
+	}
+
+	echo "-- End " . $argv[$i] . "\n";
+}
 
 ?>

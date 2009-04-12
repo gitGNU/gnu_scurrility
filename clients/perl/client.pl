@@ -34,7 +34,7 @@ sub getSourceCode {
 	return SOAP::Lite
 		-> uri('http://www.scurrility.ws/scurrility')
 		-> proxy('http://www.scurrility.ws/scurrility/scurrility.php')
-		-> GetSourceCode()
+		-> GetSourceCode('server')
 		-> result;
 }
 

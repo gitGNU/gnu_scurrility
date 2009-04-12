@@ -24,7 +24,7 @@ require_once('./nusoap/nusoap.php');
 
 $soapurl = 'http://www.scurrility.ws/scurrility/scurrility.php';
 
-function scurrility($message) {
+function filter($message) {
 	global $soapurl;
 
 	// Escape special characters to avoid malformed XML
@@ -56,6 +56,31 @@ function scurrility($message) {
 	return $result['message'];
 }
 
-echo scurrility('That guy is a fuckin ass asshole') . "\n";
+function getSourceCode() {
+	global $soapurl;
 
+	$soapaction = 'http://www.scurrility.ws/scurrility/GetSourceCode';
+	$soapclient = new nusoap_client($soapurl);
+
+	// create the request manually instead of parsing the WSDL file each
+	// time this method / the web service is invoked.
+	$soapmsg = $soapclient->serializeEnvelope('','',array(),'document', 'literal');
+	$result = $soapclient->send($soapmsg, $soapaction);
+
+	if ($soapclient->fault) {
+		// Debugging
+		// print_r($result);
+		return false;
+	}
+
+	// Debugging
+	// echo $soapclient->request . "\n";
+	// echo "---\n";
+	// echo $soapclient->response . "\n";
+
+	return $result['location'];
+}
+
+echo filter('go to hell') . "\n";
+echo getSourceCode() . "\n";
 ?>

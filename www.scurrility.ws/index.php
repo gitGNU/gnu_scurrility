@@ -29,7 +29,7 @@
   </head>
   <body>
     <div id="header">
-      scurrility javascript client demo
+      scurrility
     </div>
     <div id="container">
       <div id="content">
@@ -52,10 +52,12 @@
           <tr>
             <td>
               <p class="centered" id="footer">
-                {<a href="https://savannah.nongnu.org/projects/scurrility/">project</a>}
-                {<a href="http://git.savannah.gnu.org/cgit/scurrility.git">git-repo</a>}
-                {<a href="http://www.scurrility.ws/scurrility/scurrility.php">soap</a>}
-                {<a href="http://www.scurrility.ws/scurrility/scurrility.php?wsdl">wsdl</a>}
+                <a href="https://savannah.nongnu.org/projects/scurrility/">{project}</a>
+                <a href="http://identi.ca/group/scurrility">{blog}</a>
+                <a href="http://lists.nongnu.org/mailman/listinfo/scurrility-discuss">{mail}</a>
+                <a href="http://git.savannah.gnu.org/cgit/scurrility.git">{src}</a>
+                <a href="http://www.scurrility.ws/scurrility/scurrility.php">{soap}</a>
+                <a href="http://www.scurrility.ws/scurrility/scurrility.php?wsdl">{wsdl}</a>
               </p>
             </td>
           </tr>

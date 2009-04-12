@@ -24,8 +24,8 @@
     <title>scurrility javascript client demo</title>
     <meta http-equiv="Content-Language" content="English" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="client.js"></script>
-    <link rel="stylesheet" type="text/css" href="client.css" media="screen" />
+    <script type="text/javascript" src="js/client.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/client.css" media="screen" />
   </head>
   <body>
     <div id="header">

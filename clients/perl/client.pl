@@ -27,7 +27,16 @@ sub filter {
 		-> uri('http://www.scurrility.ws/scurrility')
 		-> proxy('http://www.scurrility.ws/scurrility/scurrility.php')
 		-> Scurrility($msg)
-		-> result . "\n";
+		-> result;
 }
 
-print &filter('go to hell');
+sub getSourceCode {
+	return SOAP::Lite
+		-> uri('http://www.scurrility.ws/scurrility')
+		-> proxy('http://www.scurrility.ws/scurrility/scurrility.php')
+		-> GetSourceCode()
+		-> result;
+}
+
+print &filter('go to hell') . "\n";
+print &getSourceCode() . "\n";

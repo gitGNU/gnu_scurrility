@@ -25,4 +25,6 @@ $dbname = 'scurrility';
 $dbuser = 'root';
 $dbpass = 'abc123';
 
+$srcuri = 'http://git.savannah.gnu.org/cgit/scurrility.git';
+
 ?>

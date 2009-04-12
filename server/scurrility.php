@@ -34,7 +34,9 @@ function Scurrility($message) {
 }
 
 function GetSourceCode() {
-	return "http://git.savannah.gnu.org/cgit/scurrility.git";
+	global $srcuri;
+
+	return $srcuri;
 }
 
 $server = new nusoap_server('scurrility.wsdl');

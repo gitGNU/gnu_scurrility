@@ -33,7 +33,7 @@ function Scurrility($message) {
 	return $filtered;
 }
 
-function GetSourceCode() {
+function GetSourceCode($component) {
 	global $srcuri;
 
 	return $srcuri;

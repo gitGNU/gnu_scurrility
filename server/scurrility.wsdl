@@ -25,13 +25,19 @@
 					<s:element name="message" type="s:string"/>
 				</s:sequence>
 			</s:complexType>
+			<s:element name="ScurrilityRequest" type="tns:ScurrilityRequestType"/>
 			<s:complexType name="ScurrilityResponseType">
 				<s:sequence>
 					<s:element name="message" type="s:string"/>
 				</s:sequence>
 			</s:complexType>
-			<s:element name="ScurrilityRequest" type="tns:ScurrilityRequestType"/>
 			<s:element name="ScurrilityResponse" type="tns:ScurrilityResponseType"/>
+			<s:simpleType name="SourceCodeComponentType">
+				<s:restriction base="s:string">
+					<s:enumeration value="server"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetSourceCodeRequest" type="tns:SourceCodeComponentType"/>
 			<s:complexType name="GetSourceCodeResponseType">
 				<s:sequence>
 					<s:element name="location" type="s:anyURI"/>
@@ -46,6 +52,9 @@
 	<wsdl:message name="ScurrilityOutput">
 		<wsdl:part name="parameters" element="tns:ScurrilityResponse"/>
 	</wsdl:message>
+	<wsdl:message name="GetSourceCodeInput">
+		<wsdl:part name="parameters" element="tns:GetSourceCodeRequest"/>
+	</wsdl:message>
 	<wsdl:message name="GetSourceCodeOutput">
 		<wsdl:part name="parameters" element="tns:GetSourceCodeResponse"/>
 	</wsdl:message>
@@ -55,6 +64,7 @@
 			<wsdl:output message="tns:ScurrilityOutput"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetSourceCode">
+			<wsdl:input message="tns:GetSourceCodeInput"/>
 			<wsdl:output message="tns:GetSourceCodeOutput"/>
 		</wsdl:operation>
 	</wsdl:portType>
@@ -71,6 +81,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="GetSourceCode">
 			<soap:operation soapAction="http://www.scurrility.ws/scurrility/GetSourceCode" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
 			<wsdl:output>
 				<soap:body use="literal"/>
 			</wsdl:output>

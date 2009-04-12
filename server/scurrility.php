@@ -33,6 +33,10 @@ function Scurrility($message) {
 	return $filtered;
 }
 
+function GetSourceCode() {
+	return "http://git.savannah.gnu.org/cgit/scurrility.git";
+}
+
 $server = new nusoap_server('scurrility.wsdl');
 
 if (isset($HTTP_RAW_POST_DATA)) {

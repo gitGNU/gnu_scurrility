@@ -1,0 +1,73 @@
+/*
+ * Copyright (C) 2009 Thomas Cort <tcort@tomcort.com>
+ * Copyright (C) 2004 Adam Beaumont, Thomas Cort, Patrick McLean, Scott Stoddard
+ *
+ * This file is part of scurrility.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+body {
+  font-family: Georgia, "Times New Roman",
+        Times, serif;
+  color: white;
+  background-color: #421C69 }
+
+h1 {
+  font-family: Helvetica, Geneva, Arial,
+        SunSans-Regular, sans-serif }
+
+ul.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 3em;
+  left: 1em;
+  width: 11em }
+
+ul.navbar li {
+  background: white;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  border-right: 1em solid #6E4571 }
+
+ul.navbar li:hover {
+  background: #AAAAAA }
+
+ul.navbar a {
+  text-decoration: none;
+  color: #421C69 }
+
+a:link {
+  color: #F3F1E0 }
+
+a:visited {
+  color: #F3F1E0 }
+
+address {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: thin dotted }
+
+#main {
+  padding-left: 13em;
+  font-family: Georgia, "Times New Roman",
+        Times, serif;
+  color: #FFFFFF }
+
+#button {
+  font-size:8pt;
+  background-color:#660099;
+  color: #FFFFFF }

@@ -1,11 +1,13 @@
 plugins
 
-	wordpress
+	Blogging Software
 
-		wp-scurrility
+	Content Management Systems
 
-			* create an admin page
-			* add get source links
+		frog cms
+
+	libre.fm
+
 
 server
 
@@ -14,13 +16,23 @@ server
 	* web service could give more details
 		* profanity detected indicator
 		* number of bad words
-	* stats display page
-	* stats archiving
+		* profanity score from 0 to 100
+	* add soap call to get wordlist or wordlist URL
+	* stats caching/archiving
+	* setup documentation
 
 db
-
+	* add vulgarity score column h*** < f***
 	* add euphemism column
+
+clients
+
+	* java client
+	* c client
+	* ada client
+	* lisp client
 
 www.scurrility.ws
 
 	* Create a way for people to submit words for the word list
+	* Create an admin interface for viewing stats / configuring

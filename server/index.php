@@ -61,6 +61,12 @@
               </p>
             </td>
           </tr>
+          <tr>
+            <td>
+              <p class="centered">
+                <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img src="img/agplv3-155x51.png" alt="[AGPL v3.0 Logo]" border="0" /></a>
+            </td>
+          </tr>
         </table>
       </div>
     </div>

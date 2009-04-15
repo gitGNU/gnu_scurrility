@@ -23,8 +23,7 @@
 
 // @source: http://git.savannah.gnu.org/cgit/scurrility.git/tree/clients/javascript
 
-var soapHost = 'www.scurrility.ws';
-var soapURI = 'http://' + soapHost + '/scurrility/scurrility.php';
+var soapURI = '/scurrility/scurrility.php';
 
 function scurrility_response(response) {
 	var soapenvelope = response.documentElement;
@@ -89,16 +88,6 @@ function scurrility_response(response) {
 }
 
 function scurrility_request() {
-
-	// if this script is not hosted on the same server as the SOAP service,
-        // then we need to enable UniversalBrowserRead to allow XMLHttpRequests.
-	if (soapHost.toLowerCase().replace(/www./i,"") != location.hostname.toLowerCase().replace(/www./i,"")) {
-		try {
-			netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
-		} catch (e) {
-			alert('Error: Enable Privilege [UniversalBrowserRead] Failed');
-		}
-	}
 
 	var frm = document.getElementById("sf");
 	var msg = frm.msgi.value;

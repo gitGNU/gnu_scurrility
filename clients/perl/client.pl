@@ -38,5 +38,14 @@ sub getSourceCode {
 		-> result;
 }
 
+sub getVersion {
+	return SOAP::Lite
+		-> uri('http://www.scurrility.ws/scurrility')
+		-> proxy('http://www.scurrility.ws/scurrility/scurrility.php')
+		-> GetVersion('server')
+		-> result;
+}
+
 print &filter('go to hell') . "\n";
 print &getSourceCode() . "\n";
+print &getVersion() . "\n";

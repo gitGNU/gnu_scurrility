@@ -36,5 +36,13 @@ def getSourceCode()
 	return service.GetSourceCode('server').location
 end
 
+def getVersion()
+	service = SOAP::WSDLDriverFactory.new('scurrility.wsdl').create_rpc_driver
+	service.generate_explicit_type = true
+	service.wiredump_dev = STDOUT if $DEBUG
+	return service.GetVersion('server').version
+end
+
 puts filter('go to hell')
 puts getSourceCode()
+puts getVersion()

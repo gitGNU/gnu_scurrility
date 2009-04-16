@@ -23,6 +23,7 @@ define('SCURRILITY', true);
 require_once('./nusoap/nusoap.php');
 
 $soapurl = 'http://www.scurrility.ws/scurrility/scurrility.php';
+#$soapurl = 'http://localhost/scurrility/scurrility.php';
 
 function filter($message) {
 	global $soapurl;
@@ -81,6 +82,32 @@ function getSourceCode() {
 	return $result['location'];
 }
 
+function getVersion() {
+	global $soapurl;
+
+	$soapaction = 'http://www.scurrility.ws/scurrility/GetVersion';
+	$soapclient = new nusoap_client($soapurl);
+
+	// create the request manually instead of parsing the WSDL file each
+	// time this method / the web service is invoked.
+	$soapmsg = $soapclient->serializeEnvelope('<GetVersionRequest xmlns="http://www.scurrility.ws/scurrility"><component>server</component></GetVersionRequest>','',array(),'document', 'literal');
+	$result = $soapclient->send($soapmsg, $soapaction);
+
+	if ($soapclient->fault) {
+		// Debugging
+		// print_r($result);
+		return false;
+	}
+
+	// Debugging
+	// echo $soapclient->request . "\n";
+	// echo "---\n";
+	// echo $soapclient->response . "\n";
+
+	return $result['version'];
+}
+
 echo filter('go to hell') . "\n";
 echo getSourceCode() . "\n";
+echo getVersion() . "\n";
 ?>

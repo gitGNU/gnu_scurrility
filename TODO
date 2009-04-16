@@ -17,8 +17,6 @@ server
 		* profanity detected indicator
 		* number of bad words
 		* profanity score from 0 to 100
-	* add soap call to get wordlist or wordlist URL
-	* stats caching/archiving
 	* setup documentation
 
 db

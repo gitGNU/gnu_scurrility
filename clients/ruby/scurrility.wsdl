@@ -44,6 +44,18 @@
 				</s:sequence>
 			</s:complexType>
 			<s:element name="GetSourceCodeResponse" type="tns:GetSourceCodeResponseType"/>
+			<s:simpleType name="VersionType">
+				<s:restriction base="s:string">
+					<s:enumeration value="server"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetVersionRequest" type="tns:VersionType"/>
+			<s:complexType name="GetVersionResponseType">
+				<s:sequence>
+					<s:element name="version" type="s:nonNegativeInteger"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetVersionResponse" type="tns:GetVersionResponseType"/>
 		</s:schema>
 	</wsdl:types>
 	<wsdl:message name="ScurrilityInput">
@@ -58,6 +70,12 @@
 	<wsdl:message name="GetSourceCodeOutput">
 		<wsdl:part name="parameters" element="tns:GetSourceCodeResponse"/>
 	</wsdl:message>
+	<wsdl:message name="GetVersionInput">
+		<wsdl:part name="parameters" element="tns:GetVersionRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetVersionOutput">
+		<wsdl:part name="parameters" element="tns:GetVersionResponse"/>
+	</wsdl:message>
 	<wsdl:portType name="ScurrilityPortType">
 		<wsdl:operation name="Scurrility">
 			<wsdl:input message="tns:ScurrilityInput"/>
@@ -66,6 +84,10 @@
 		<wsdl:operation name="GetSourceCode">
 			<wsdl:input message="tns:GetSourceCodeInput"/>
 			<wsdl:output message="tns:GetSourceCodeOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetVersion">
+			<wsdl:input message="tns:GetVersionInput"/>
+			<wsdl:output message="tns:GetVersionOutput"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="ScurrilityBinding" type="tns:ScurrilityPortType">
@@ -81,6 +103,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="GetSourceCode">
 			<soap:operation soapAction="http://www.scurrility.ws/scurrility/GetSourceCode" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetVersion">
+			<soap:operation soapAction="http://www.scurrility.ws/scurrility/GetVersion" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

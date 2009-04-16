@@ -29,5 +29,10 @@ def getSourceCode():
 	WSDLFile = 'scurrility.wsdl'
 	return WSDL.Proxy(WSDLFile).GetSourceCode('server')
 
+def getVersion():
+	WSDLFile = 'scurrility.wsdl'
+	return WSDL.Proxy(WSDLFile).GetVersion('server')
+
 print filter('go to hell')
 print getSourceCode()
+print getVersion()

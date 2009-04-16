@@ -24,6 +24,8 @@ require_once('config.php');
 require_once('nusoap/nusoap.php');
 require_once('db/mysql.php');
 
+$version = 0;
+
 function Scurrility($message) {
 
 	db_connect();
@@ -37,6 +39,12 @@ function GetSourceCode($component) {
 	global $srcuri;
 
 	return $srcuri;
+}
+
+function GetVersion($component) {
+	global $version;
+
+	return $version;
 }
 
 $server = new nusoap_server('scurrility.wsdl');
